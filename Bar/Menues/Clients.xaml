@@ -5,8 +5,59 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bar.Menues"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="821" d:DesignWidth="1241">
     <Grid>
-            
+        <Button Content="Свежие заказы" HorizontalAlignment="Left" Width="367" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D" Margin="875,0,0,0" VerticalAlignment="Top">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="603" VerticalAlignment="Top" Margin="-1,62,1,0">
+            <ItemsControl ItemsSource="{Binding cards}" Width="1350" Height="auto" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="0" Background="#FF242424" Width="256" Margin="0,0,60,27" CornerRadius="15" Height="170">
+                            <StackPanel>
+                                <TextBlock Text="{Binding id, StringFormat='Заказ: {0}'}" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="White"/>
+                                <TextBlock Text="{Binding idTable, StringFormat='Номер столика: {0}'}" FontSize="15" Foreground="White" Margin="10,5,0,0" />
+                                <TextBlock Text="Напитки" FontSize="15" Foreground="White" Margin="10,5,0,0" />
+                                <TextBlock Text="{Binding dateOrder, StringFormat='Дата заказа: {0}'}" FontSize="15" Foreground="White" Margin="10,5,0,0" />
+                                <TextBlock Text="{Binding price, StringFormat='Общая стоимость: {0}'}" FontSize="15" Foreground="White" Margin="10,5,0,0" />
+                                <TextBlock Text="{Binding status, StringFormat='Статус: {0}'}" FontSize="15" Foreground="White" Margin="10,5,0,0" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <Button x:Name="AddButton" Content="Добавить заказ" HorizontalAlignment="Left" Width="367" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D" Margin="18,0,0,37" VerticalAlignment="Bottom" Click="AddButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="EditButton" Content="Изменить заказ" HorizontalAlignment="Left" Margin="427,0,0,38" VerticalAlignment="Bottom" Width="367" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D" Click="EditButton_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="DeleteButton" Content="Удалить заказ" HorizontalAlignment="Left" Margin="836,0,0,38" VerticalAlignment="Bottom" Width="367" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </UserControl>

@@ -14,6 +14,13 @@ namespace Bar.Models
         public DbSet<OrderItem> orderItems { get; set; } = null!;
         public DbSet<Event> events { get; set; } = null!;
         public DbSet<Reviews> reviews { get; set; } = null!;
+
+        public ApplicationContext() { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-ENSD5RR;Database=Bar;Trusted_Connection=True;Trust Server Certificate=True;");
+        }
     }
 
     public class Client
@@ -77,7 +84,6 @@ namespace Bar.Models
         public int idDrink { get; set; }
         public Drink? drink { get; set; }
 
-        public int quantity { get; set; }
         public double priceUnit { get; set; }
     }
 
