@@ -1,0 +1,98 @@
+﻿<Window x:Class="Bar.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bar"
+        mc:Ignorable="d"
+        Title="Menu" Height="1080" Width="1920" Background="#FF484848">
+
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FF242424"/>
+            <Setter Property="Foreground" Value="#FF7D7D7D"/>
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#DAB998" />
+                    <Setter Property="Foreground" Value="#484848" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#0F0F0F" />
+                    <Setter Property="Foreground" Value="#484848" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="120" Margin="21,18,0,0" VerticalAlignment="Top" Width="1878" RadiusX="30" RadiusY="30" Fill="#FF595959"/>
+        <Rectangle HorizontalAlignment="Left" Height="863" Margin="21,151,0,0" VerticalAlignment="Top" Width="577" RadiusX="30" RadiusY="30" Fill="#FF595959"/>
+        <Rectangle HorizontalAlignment="Left" Height="863" Margin="610,151,0,0" VerticalAlignment="Top" Width="1289" RadiusX="30" RadiusY="30" Fill="#FF595959"/>
+        
+        <Label Content="Пусто" HorizontalAlignment="Left" Margin="1113,8,0,0" VerticalAlignment="Top" Foreground="#FFCDCDCD" Width="auto" Height="auto" FontSize="80"/>
+        <Border BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="auto" Height="32" Margin="51,96,0,0" Background="#FF242424" CornerRadius="10">
+            <Label Content="Имя Фамилия Отчетство" HorizontalAlignment="Left" Margin="0,-3,0,0" VerticalAlignment="Top" Foreground="#FF7D7D7D" FontSize="20"/>
+        </Border>
+
+        <Button Style="{StaticResource ButtonStyle}" Content="Button" HorizontalAlignment="Left" Margin="56,203,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Style="{StaticResource ButtonStyle}" Content="Заказы" HorizontalAlignment="Left" Margin="56,203,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Style="{StaticResource ButtonStyle}" Content="Напитки" HorizontalAlignment="Left" Margin="122,303,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Style="{StaticResource ButtonStyle}" Content="Клиенты" HorizontalAlignment="Left" Margin="56,403,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Style="{StaticResource ButtonStyle}" Content="События" HorizontalAlignment="Left" Margin="122,503,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Style="{StaticResource ButtonStyle}" Content="Помещение" HorizontalAlignment="Left" Margin="56,603,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Style="{StaticResource ButtonStyle}" Content="Отзывы" HorizontalAlignment="Left" Margin="122,703,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Content="Выход" HorizontalAlignment="Left" Margin="56,898,0,0" VerticalAlignment="Top" Width="502" Height="91" FontSize="36" Background="#FF412F2F" Foreground="#FF7D7D7D">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Button.Resources>
+        </Button>
+        <ContentControl x:Name="tubs" HorizontalAlignment="Left" Margin="633,173,0,0" VerticalAlignment="Top" Height="821" Width="1242">
+
+        </ContentControl>
+    </Grid>
+</Window>
