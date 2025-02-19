@@ -5,8 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bar.Menues"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="821" d:DesignWidth="1241">
     <Grid>
-            
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding cards}" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border x:Name="Container" Background="#242424" Width="434" Height="190" CornerRadius="15" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Grid>
+                                <Border x:Name="Photo" Background="#D9D9D9" Width="150" Height="150" CornerRadius="15" Margin="21, 20, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                                <Label x:Name="Title" Foreground="#FFFFFF" Content="Алкоголь" FontWeight="Bold" FontSize="20px" Margin="191, 20, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Label x:Name="Volume" Foreground="#FFFFFF" Content="Объем" FontWeight="Regular" FontSize="15px" Margin="191, 47, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Label x:Name="IsAlcohol" Foreground="#FFFFFF" Content="Есть ли алкоголь?" FontWeight="Regular" FontSize="15px" Margin="191, 68, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Label x:Name="Degree" Foreground="#FFFFFF" Content="Градусы" FontWeight="Regular" FontSize="15px" Margin="191, 89, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Label x:Name="Price" Foreground="#FFFFFF" Content="Цена" FontWeight="Regular" FontSize="15px" Margin="191, 142, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </UserControl>
