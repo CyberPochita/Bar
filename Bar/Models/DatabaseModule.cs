@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bar.Models
 {
-    class DatabaseModule
+    public class DatabaseModule
     {
         private readonly ApplicationContext _context;
 

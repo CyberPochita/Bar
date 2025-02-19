@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Bar.AdditionalCode;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bar.Models
@@ -15,7 +16,12 @@ namespace Bar.Models
         public DbSet<Event> events { get; set; } = null!;
         public DbSet<Reviews> reviews { get; set; } = null!;
 
-        public ApplicationContext() { }
+        public ApplicationContext()
+        {
+            //Database.EnsureDeleted();
+            //Database.EnsureCreated();
+            //GenRecords.SeedDatabase(this);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

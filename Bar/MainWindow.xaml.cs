@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Bar.Models;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,12 @@ namespace Bar
     /// </summary>
     public partial class MainWindow : Window
     {
+        public DatabaseModule db;
         public MainWindow()
         {
             InitializeComponent();
+
+            db = new DatabaseModule(new ApplicationContext());
 
             WindowState = WindowState.Maximized;
         }
@@ -44,7 +48,7 @@ namespace Bar
 
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
-            MenuWindow menuWindow = new MenuWindow();
+            MenuWindow menuWindow = new MenuWindow(db);
             menuWindow.WindowState = WindowState.Maximized;
             menuWindow.Show();
 

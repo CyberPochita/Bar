@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bar.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,16 @@ namespace Bar
     /// </summary>
     public partial class MenuWindow : Window
     {
-        public MenuWindow()
+        public DatabaseModule db;
+        public MenuWindow(DatabaseModule db)
         {
             InitializeComponent();
+            this.db = db;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            tubs.Content = new Menues.Clients();
+            tubs.Content = new Menues.Orders(db);
         }
     }
 }
