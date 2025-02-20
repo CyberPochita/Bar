@@ -20,10 +20,12 @@ namespace Bar.Menues.DialogWindows
     /// </summary>
     public partial class AddOrderDialog : Window
     {
+        private Drinks drinks;
+        private List<Drink> objectDrinks;
         public AddOrderDialog(DatabaseModule db)
         {
             InitializeComponent();
-            Drinks drinks = new Drinks(db);
+            drinks = new Drinks(db);
             GridDrinks.Children.Add(drinks);
         }
 
@@ -34,7 +36,7 @@ namespace Bar.Menues.DialogWindows
 
         private void DoneButton_Click(object sender, RoutedEventArgs e)
         {
-
+            objectDrinks = drinks.GetSelectedDrinks();
         }
 
         private void NumbersTableInput_TextChanged(object sender, TextChangedEventArgs e)
