@@ -154,19 +154,34 @@ namespace Bar.Models
 
         public List<Drink> GetDrinks() => _context.drinks.ToList(); // Получить все напитки
 
-        public List<Drink> GetDrinksByTitle(string title) // Получить все напитки по названию
+        public List<Drink> GetDrinksByTitles(List<string> titles) // Получить все напитки по названию
         {
             List<Drink> drinks = new List<Drink>();
-
-            foreach (var drink in _context.drinks)
+            foreach(var item in titles)
             {
-                if (drink.title.Contains(title))
+                foreach (var drink in _context.drinks)
                 {
-                    drinks.Add(drink);
+                    if (drink.title.Contains(item))
+                    {
+                        drinks.Add(drink);
+                    }
                 }
             }
 
             return drinks;
+        }
+
+        public Drink GetDrinkByTitle(string title) // Получить напиток по названию
+        {
+            foreach (var drink in _context.drinks)
+            {
+                if (drink.title.Contains(title))
+                {
+                    return drink;
+                }
+            }
+
+            throw new Exception($"Такой напиток не найден - {title}");
         }
 
         public List<Drink> GetDrinksByIsAlcohol(bool isAlcohol) // Получить все алкоголические/не алкоголические напитки
