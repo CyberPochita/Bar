@@ -16,7 +16,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border x:Name="Container" Background="#242424" Margin="0, 0, 10, 10" Width="434" Height="190" CornerRadius="15" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Border x:Name="ContainerBorder" Background="#242424" Margin="0, 0, 10, 10" Width="434" Height="190" CornerRadius="15" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="ContainerBorder_MouseDown">
                             <Grid>
                                 <Border x:Name="Photo" Background="#D9D9D9" Width="150" Height="150" CornerRadius="15" Margin="21, 20, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" />
                                 <TextBlock x:Name="Title" Foreground="#FFFFFF" Text="{Binding title}" FontWeight="Bold" FontSize="20px" Margin="191, 20, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
