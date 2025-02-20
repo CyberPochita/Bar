@@ -6,11 +6,13 @@
         xmlns:local="clr-namespace:Bar.Menues.DialogWindows"
         xmlns:Menues="clr-namespace:Bar.Menues" x:Class="Bar.Menues.DialogWindows.AddOrderDialog"
         mc:Ignorable="d"
-        Title="Добавить заказ" Height="775" Width="1448" Background="#484848">
+        Title="Добавить заказ" Height="815" Width="1465" Background="#484848">
     <Grid>
         <Grid>
             <Border x:Name="ContainerDrinks" Background="#595959" Width="1406" Height="509" CornerRadius="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21, 21, 21, 0">
-
+                <Grid x:Name="GridDrinks" Margin="21,21,21,21">
+                    
+                </Grid>
             </Border>
         </Grid>
         <Grid>

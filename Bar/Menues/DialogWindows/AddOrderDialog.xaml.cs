@@ -23,8 +23,8 @@ namespace Bar.Menues.DialogWindows
         public AddOrderDialog(DatabaseModule db)
         {
             InitializeComponent();
-            Drinks drinks = new Drinks();
-            ContainerDrinks.Child = drinks;
+            Drinks drinks = new Drinks(db);
+            GridDrinks.Children.Add(drinks);
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

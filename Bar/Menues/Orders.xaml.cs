@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 
 namespace Bar.Menues
 {
-    public class Card
+    public class CardOrder
     {
         public int id { get; set; }
         public int idTable { get; set; }
@@ -30,21 +30,21 @@ namespace Bar.Menues
 
     public partial class Orders : UserControl
     {
-        public ObservableCollection<Card> cards { get; set; }
+        public ObservableCollection<CardOrder> cards { get; set; }
         public DatabaseModule db;
 
         public Orders(DatabaseModule db)
         {
             InitializeComponent();
             this.db = db;
-            cards = new ObservableCollection<Card>();
+            cards = new ObservableCollection<CardOrder>();
             DataContext = this;
 
             List<Order> orders = db.GetOrders();
 
             foreach(Order order in orders)
             {
-                cards.Add(new Card { id = order.Id, idTable = order.idTable, dateOrder = order.datetime, price = order.totalPrice, status = order.status });
+                cards.Add(new CardOrder { id = order.Id, idTable = order.idTable, dateOrder = order.datetime, price = order.totalPrice, status = order.status });
             }
         }
 
