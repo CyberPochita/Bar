@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Bar.Models
 {
@@ -156,6 +157,11 @@ namespace Bar.Models
 
         public List<Drink> GetDrinksByTitles(List<string> titles) // Получить все напитки по названию
         {
+            if(titles.IsNullOrEmpty())
+            {
+                return new List<Drink>();
+            }
+
             List<Drink> drinks = new List<Drink>();
             foreach(var item in titles)
             {
