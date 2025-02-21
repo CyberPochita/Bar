@@ -18,64 +18,23 @@ namespace Bar.Models
             this._context = context;
         }
 
-        public void AddOrder(int tableId, Drink drink) // Сделать заказ
+        public Order AddOrder(int tableId, double totalPrice) // Сделать заказ
         {
-            double cost = drink.price;
 
             Order newOrder = new Order
             {
                 idTable = tableId,
-                totalPrice = cost,
+                totalPrice = totalPrice,
                 datetime = DateTime.Now,
-                status = "В обработке"
-            };
-
-            OrderItem newOrderItem = new OrderItem
-            {
-                idOrder = newOrder.Id,
-                idDrink = drink.Id,
-                priceUnit = drink.price
-            };
-
-            _context.orders.Add(newOrder);
-            _context.orderItems.Add(newOrderItem);
-
-            _context.SaveChanges();
-            Console.WriteLine("Заказ сделан");
-        }
-
-        public void AddOrder(int tableId, List<Drink> drinks) // Сделать заказ на несколько напитков
-        {
-            double cost = 0;
-            foreach (Drink drink in drinks)
-            {
-                cost += drink.price;
-            }
-
-            Order newOrder = new Order
-            {
-                idTable = tableId,
-                totalPrice = cost,
-                datetime = DateTime.Now,
-                status = "В обработке"
+                status = "Pending"
             };
 
             _context.orders.Add(newOrder);
 
-            foreach (Drink drink in drinks)
-            {
-                OrderItem newOrderItem = new OrderItem
-                {
-                    idOrder = newOrder.Id,
-                    idDrink = drink.Id,
-                    priceUnit = drink.price
-                };
-
-                _context.orderItems.Add(newOrderItem);
-            }
-
             _context.SaveChanges();
             Console.WriteLine("Заказ сделан");
+
+            return newOrder;
         }
 
         public void DeleteOrder(int id)
@@ -151,6 +110,26 @@ namespace Bar.Models
             }
 
             return orders;
+        }
+
+        public void AddOrderItem(List<Drink> drinks, int idOrder)
+        {
+            List<OrderItem> orderItems = new List<OrderItem>();
+            foreach (Drink drink in drinks)
+            {
+                OrderItem orderItem = new OrderItem
+                {
+                    idOrder = idOrder,
+                    idDrink = drink.Id,
+                    priceUnit = drink.price,
+                };
+
+                orderItems.Add(orderItem);
+            }
+
+            _context.orderItems.AddRange(orderItems);
+            _context.SaveChanges();
+            Console.WriteLine("Добавлены все OrderItems");
         }
 
         public List<Drink> GetDrinks() => _context.drinks.ToList(); // Получить все напитки
