@@ -18,7 +18,7 @@
         <Grid>
             <Border x:Name="ContainerNumberTables" Background="#595959" Width="808" Height="203" CornerRadius="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 21, 12">
                 <Grid>
-                    <TextBox x:Name="NumbersTableInput" HorizontalAlignment="Center" Padding="12, 10, 0, 0" BorderThickness="0" Margin="0,0,0,0" VerticalAlignment="Center" Width="764" Height="54" FontSize="24" Background="#2E2E2E" Foreground="#5C5C5C" TextChanged="NumbersTableInput_TextChanged">
+                    <TextBox x:Name="NumbersTableInput" HorizontalAlignment="Center" Padding="12, 10, 0, 0" BorderThickness="0" Margin="0,0,0,0" VerticalAlignment="Center" Width="764" Height="54" FontSize="24" Background="#2E2E2E" Foreground="#5C5C5C" TextChanged="NumbersTableInput_TextChanged" PreviewTextInput="NumbersTableInput_PreviewTextInput" DataObject.Pasting="NumbersTableInput_Pasting">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="15" />
