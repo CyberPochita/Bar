@@ -56,7 +56,8 @@ namespace Bar.Menues
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-
+            EditOrderDialog editOrder = new EditOrderDialog(db);
+            editOrder.Show();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
