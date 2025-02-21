@@ -34,7 +34,7 @@ namespace Bar.Menues
         private int clickCount = 0;
         private string originalColor = "#242424";
         private string selectedColor = "#2A3527";
-        private List<string> selectedDrinks;
+        private List<string>? selectedDrinks;
         private DatabaseModule db;
 
         public Drinks(DatabaseModule db)
@@ -43,6 +43,7 @@ namespace Bar.Menues
             cards = new ObservableCollection<CardDrink>();
             this.db = db;
             List<Drink> drinks = db.GetDrinks();
+            selectedDrinks = new List<string>();
             DataContext = this;
 
             foreach(var drink in drinks)
