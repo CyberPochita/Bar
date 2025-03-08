@@ -60,10 +60,11 @@ namespace Bar.Models
             Console.WriteLine("Заказ удален");
         }
 
-        public void EditOrder(Order order, int tableId, string status)
+        public void EditOrder(Order order, int tableId, string status, double totalPrice)
         {
             order.idTable = tableId;
             order.status = status;
+            order.totalPrice = totalPrice;
 
             _context.SaveChanges();
             Console.WriteLine("Заказ изменен");
@@ -152,6 +153,35 @@ namespace Bar.Models
             _context.orderItems.AddRange(orderItems);
             _context.SaveChanges();
             Console.WriteLine("Добавлены все OrderItems");
+        }
+
+        public List<OrderItem> GetOrderItemsByOrderId(int idOrder) // Получить все OrderItem-ы по idOrder
+        {
+            List<OrderItem> orderItems = new List<OrderItem>();
+
+            foreach(OrderItem orderItem in _context.orderItems)
+            {
+                if(orderItem.idOrder == idOrder)
+                {
+                    orderItems.Add(orderItem);
+                }
+            }
+
+            return orderItems;
+        }
+
+        public void DeleteOrderItem(int idOrder)
+        {
+            foreach(var orderItem in _context.orderItems)
+            {
+                if(orderItem.idOrder == idOrder)
+                {
+                    _context.orderItems.Remove(orderItem);
+                }
+            }
+
+            _context.SaveChanges();
+            Console.WriteLine("Удален OrderItem");
         }
 
         public List<Drink> GetDrinks() => _context.drinks.ToList(); // Получить все напитки
@@ -245,6 +275,24 @@ namespace Bar.Models
                 if (drink.alcoholDegree == degree)
                 {
                     drinks.Add(drink);
+                }
+            }
+
+            return drinks;
+        }
+
+        public List<Drink> GetDrinksByOrderItem(List<OrderItem> orderItems) // Получить напитки по OrderItem-ам
+        {
+            List<Drink> drinks = new List<Drink>();
+
+            foreach(var orderItem in orderItems)
+            {
+                foreach(var drink in _context.drinks)
+                {
+                    if(orderItem.idDrink == drink.Id)
+                    {
+                        drinks.Add(drink);
+                    }
                 }
             }
 
