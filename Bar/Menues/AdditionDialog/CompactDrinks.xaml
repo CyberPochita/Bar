@@ -1,0 +1,34 @@
+﻿<Window x:Class="Bar.Menues.AdditionDialog.CompactDrinks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bar.Menues.AdditionDialog"
+        mc:Ignorable="d"
+        Title="CompactDrinks" Height="550" Width="540" Background="#FF484848">
+    <Grid>
+        <Border x:Name="CompactDrinksBorder" Width="498" Height="365" Margin="0, 18, 0, 0" Background="#FF595959" CornerRadius="20" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Grid x:Name="ContainerDrinks" Margin="10,10,10,10">
+                
+            </Grid>
+        </Border>
+        <Border x:Name="ContainerButtons" Background="#595959" Width="498" Height="79" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,31">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="DoneButton" Content="Готово" HorizontalAlignment="Left" Margin="31,0,0,0" VerticalAlignment="Center" Width="154" Height="25" Background="#FF242424" Foreground="#FF7D7D7D" Click="DoneButton_Click" FontSize="16">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="CancelButton" Content="Отмена" Margin="130, 0, 0, 0" Width="154" Height="25" FontSize="16" Background="#FF242424" Foreground="#FF7D7D7D" Click="CancelButton_Click" IsCancel="True" IsDefault="True" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
