@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using Bar.Menues;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -91,6 +92,27 @@ namespace Bar.Models
                 if (status == order.status)
                 {
                     orders.Add(order);
+                }
+            }
+
+            return orders;
+        }
+        public List<Order> GetOrdersById(List<int> ids) // Получить все заказы по id-шникам
+        {
+            List<Order> orders = new List<Order>();
+            if (ids.IsNullOrEmpty())
+            {
+                return new List<Order>();
+            }
+
+            foreach (var id in ids)
+            {
+                foreach (var order in _context.orders)
+                {
+                    if (order.Id == id)
+                    {
+                        orders.Add(order);
+                    }
                 }
             }
 
