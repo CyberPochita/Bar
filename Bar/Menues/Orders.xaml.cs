@@ -1,4 +1,5 @@
-﻿using Bar.Menues.DialogWindows;
+﻿using Bar.Menues.AdditionUserControls;
+using Bar.Menues.DialogWindows;
 using Bar.Models;
 using Bogus;
 using System;
@@ -19,33 +20,17 @@ using System.Windows.Shapes;
 
 namespace Bar.Menues
 {
-    public class CardOrder
-    {
-        public int id { get; set; }
-        public int idTable { get; set; }
-        public DateTime dateOrder { get; set; }
-        public double price { get; set; }
-        public string status { get; set; }
-    }
-
     public partial class Orders : UserControl
     {
-        public ObservableCollection<CardOrder> cards { get; set; }
         public DatabaseModule db;
+        private OrdersList ordersList;
 
         public Orders(DatabaseModule db)
         {
             InitializeComponent();
             this.db = db;
-            cards = new ObservableCollection<CardOrder>();
-            DataContext = this;
-
-            List<Order> orders = db.GetOrders();
-
-            foreach(Order order in orders)
-            {
-                cards.Add(new CardOrder { id = order.Id, idTable = order.idTable, dateOrder = order.datetime, price = order.totalPrice, status = order.status });
-            }
+            ordersList = new(db);
+            GridOrders.Children.Add(ordersList);
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
