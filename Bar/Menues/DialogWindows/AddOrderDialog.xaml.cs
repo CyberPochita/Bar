@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bar.Menues.AdditionUserControls;
 
 namespace Bar.Menues.DialogWindows
 {
@@ -22,7 +23,7 @@ namespace Bar.Menues.DialogWindows
     /// </summary>
     public partial class AddOrderDialog : Window
     {
-        private Drinks drinks;
+        private DrinksList drinksList;
         private List<Drink>? objectDrinks;
         private DatabaseModule db;
         private static readonly Regex regex = new("[^0-9]+");
@@ -31,8 +32,8 @@ namespace Bar.Menues.DialogWindows
         {
             InitializeComponent();
             this.db = db;
-            drinks = new Drinks(db);
-            GridDrinks.Children.Add(drinks);
+            drinksList = new DrinksList(db);
+            GridDrinks.Children.Add(drinksList);
         }
 
         private static bool IsTextAllowed(string text) => !regex.IsMatch(text);
@@ -44,7 +45,7 @@ namespace Bar.Menues.DialogWindows
 
         private void DoneButton_Click(object sender, RoutedEventArgs e)
         {
-            objectDrinks = drinks.GetSelectedDrinks();
+            objectDrinks = drinksList.GetSelectedDrinks();
             string numberTable = NumbersTableInput.Text;
             double totalPrice = 0;
 
