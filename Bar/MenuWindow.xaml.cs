@@ -27,9 +27,14 @@ namespace Bar
             this.db = db;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
             tubs.Content = new Menues.Orders(db);
+        }
+
+        private void DrinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            tubs.Content = new Menues.Drinks(db);
         }
     }
 }

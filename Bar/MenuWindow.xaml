@@ -33,22 +33,14 @@
         <Border BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="auto" Height="32" Margin="51,96,0,0" Background="#FF242424" CornerRadius="10">
             <Label Content="Имя Фамилия Отчетство" HorizontalAlignment="Left" Margin="0,-3,0,0" VerticalAlignment="Top" Foreground="#FF7D7D7D" FontSize="20"/>
         </Border>
-
-        <Button Style="{StaticResource ButtonStyle}" Content="Button" HorizontalAlignment="Left" Margin="56,203,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D">
+        <Button Style="{StaticResource ButtonStyle}" x:Name="OrderButton" Content="Заказы" HorizontalAlignment="Left" Margin="56,203,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D" Click="OrderButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15" />
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Style="{StaticResource ButtonStyle}" Content="Заказы" HorizontalAlignment="Left" Margin="56,203,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D" Click="Button_Click">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="15" />
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Style="{StaticResource ButtonStyle}" Content="Напитки" HorizontalAlignment="Left" Margin="122,303,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D">
+        <Button Style="{StaticResource ButtonStyle}" x:Name="DrinkButton" Content="Напитки" HorizontalAlignment="Left" Margin="122,303,0,0" VerticalAlignment="Top" Width="435" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D" Click="DrinkButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15" />
