@@ -47,7 +47,8 @@ namespace Bar.Menues
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DeleteOrderDialog deleteOrder = new DeleteOrderDialog(db);
+            deleteOrder.Show();
         }
 
         private void FreshOrders_Click(object sender, RoutedEventArgs e)

@@ -31,7 +31,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="DeleteButton" Content="Удалить заказ" HorizontalAlignment="Left" Margin="836,0,0,38" VerticalAlignment="Bottom" Width="367" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D">
+        <Button x:Name="DeleteButton" Content="Удалить заказ" HorizontalAlignment="Left" Margin="836,0,0,38" VerticalAlignment="Bottom" Width="367" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D" Click="DeleteButton_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15" />
