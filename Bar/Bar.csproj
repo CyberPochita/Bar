@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Images\background-auth.png" />
+    <None Remove="Images\search.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
 
   <ItemGroup>
     <Resource Include="Images\background-auth.png" />
+    <Resource Include="Images\search.png" />
   </ItemGroup>
 
 </Project>
