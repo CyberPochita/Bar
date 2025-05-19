@@ -58,6 +58,20 @@ namespace Bar.Menues.AdditionUserControls
             return new List<Order>(db.GetOrdersById(selectedOrders));
         }
 
+        public void SortOrdersByDateNewestFirst()
+        {
+            var sortedOrders = cards
+                .OrderByDescending(order => order.dateOrder)
+                .ToList();
+
+            cards.Clear();
+
+            foreach (var order in sortedOrders)
+            {
+                cards.Add(order);
+            }
+        }
+
         private void BorderOrder_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if(isEnableActiveEffect)

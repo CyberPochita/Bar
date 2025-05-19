@@ -51,9 +51,9 @@ namespace Bar.Menues
             deleteOrder.Show();
         }
 
-        private void FreshOrders_Click(object sender, RoutedEventArgs e)
+        private void FreshOrder_Click(object sender, RoutedEventArgs e)
         {
-
+            ordersList.SortOrdersByDateNewestFirst();
         }
     }
 }

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="821" d:DesignWidth="1241">
     <Grid>
-        <Button Content="Свежие заказы" HorizontalAlignment="Left" Width="367" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D" Margin="875,0,0,0" VerticalAlignment="Top">
+        <Button Name="FreshOrder" Content="Свежие заказы" HorizontalAlignment="Left" Width="367" Height="55" FontSize="36" Background="#FF242424" Foreground="#FF7D7D7D" Margin="875,0,0,0" VerticalAlignment="Top" Click="FreshOrder_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15" />
